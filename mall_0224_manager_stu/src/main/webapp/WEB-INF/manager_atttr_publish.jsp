@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>仿京东商城</title>
 <base href="<%=basePath %>" />
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 //获取一级菜单
 	$(function(){
@@ -35,10 +35,11 @@
 		});
 	}
 	function attr_publish_list_inner(class_2_id){
-		$.post("goto_attr_by_class2_id.do",{class_2_id:class_2_id},function(html){
+		var class_2_name = $("#attr_publish_class2_select option:selected").html();
+		$.post("goto_attr_by_class2_id.do",{class_2_id:class_2_id,class_2_name:class_2_name},function(html){
+			
 			$("#manager_publish_attr_list_inner").append(html);
 		})
-		
 	}
 
 </script>

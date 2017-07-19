@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>仿京东商城</title>
 <base href="<%=basePath %>" />
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 	function a (){
 		
@@ -18,12 +18,14 @@
 </script>
 </head>
 <body>
-	${class_2_name }的分类属性：
-	<c:forEach items="list_value" var="list_attr">
-		${list_attr.shxm_mch } 
-		<c:forEach items="${list_attr }" var="val">
-			${val.shxzh } ${val.shfpy }
+		${class_2_id } ${class_2_name }的分类属性：
+	<c:forEach items="${list_attr }" var="attr">
+		${attr.shxm_mch } 
+		<br>
+		<c:forEach items="${attr.list_value }" var="val">
+			${val.shxzh } ${val.shxzh_mch }
 		</c:forEach>
 	</c:forEach>
+	<a href="goto_add_attr/${class_2_id}/${class_2_name}.do">分类属性添加</a>
 </body>
 </html>

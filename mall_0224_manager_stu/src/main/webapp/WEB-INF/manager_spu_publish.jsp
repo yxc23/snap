@@ -75,7 +75,8 @@
 </head>
 <body>
 	<form action="save_spu.do" method="post" enctype="multipart/form-data">
-		${success}============================
+		${success}
+		============================
 		<hr>
 		<select name ="flbh1" id="spu_publish_class1_select" onChange="spu_publish_get_class_2_select(this.value)" ></select>
 		<select name ="flbh2" id="spu_publish_class2_select" ></select>

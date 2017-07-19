@@ -3,12 +3,38 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.mapper.AttrMapper">
-<!-- 	
-	<select id="select_attr" resultMap="select_attr_map">
-	
-	
+	<select id="select_attrs" resultMap="select_attr_map">
+		select attr.*,val.*,attr.id as attr_id,val.id as val_id
+		from t_mall_attr attr,t_mall_value val
+		<where>
+			attr.Id = val.shxm_id
+			<if test="class_2_id != 0">
+				and attr.flbh2=#{class_2_id};
+			</if>
+		</where>
 	</select>
- -->
+
+	<resultMap type="com.atguigu.bean.OBJECT_T_MALL_ATTR" id="select_attr_map">
+		<result column="attr_id" property="id" />
+		<collection property="list_value" ofType="com.atguigu.bean.T_MALL_VALUE"
+			autoMapping="true">
+			<result column="val_id" property="id" />
+		</collection>
+	</resultMap>
+
+
+	<!-- <insert id="insert_attr" parameterType="Map">
+		insert into t_mall_attr
+		(flbh2,shxm_mch,shfqy)
+		VALUES
+		<foreach collection="list_attr" item="">
+			(#{flbh2},#{shxm_mch},#{shfqy})
+		</foreach>
+	</insert>
+
+	<insert id="insert_value" parameterType="Map">
+
+	</insert> -->
 
 </mapper>
 

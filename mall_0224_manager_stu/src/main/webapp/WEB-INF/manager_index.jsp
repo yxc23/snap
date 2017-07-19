@@ -8,7 +8,7 @@
 <link rel="shortcut icon" type="image/iocn" href="images/jd.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>仿京东商城</title>
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 	function a (){
 		
