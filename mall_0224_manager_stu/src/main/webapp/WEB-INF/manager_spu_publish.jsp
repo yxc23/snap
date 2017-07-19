@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>京东商城</title>
+<title>仿京东商城</title>
 <base href="<%=basePath %>" />
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
