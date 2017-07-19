@@ -6,11 +6,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="shortcut icon" type="image/iocn" href="image/jd.ico">
+<link rel="shortcut icon" type="image/iocn" href="images/jd.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>仿京东商城</title>
 <base href="<%=basePath %>" />
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 	//获取一级菜单
 		$(function(){
@@ -47,44 +47,47 @@
 				});
 			});
 		 }
-		function index_image_click(){
-			$("#index_file").click();	
+		
+		function index_image_click(index){
+			$("#index_file_"+index).click();	
 		}
+		
 			//获得缩略图，替换点击的图片按钮
 		function index_image_change(index){
-				var image = $("index_file")[0].files[0];
-				alert(image);
+				var image = $("#index_file_"+index)[0].files[0];
 				var image_url = window.URL.createObjectURL(image);
 				$("#index_img_"+index).attr("src",image_url);
 				
-				spu_pulish_image(index+1);
+				var len =$("#spu_publish_image_area input").length;
+					if((index+1)==len){
+						spu_add_click_image(index+1);
+				}	
 		}
 		
 		function spu_add_click_image(index){//追加按钮图片
-			var len =$("#spu_publish_image_area input").length;
-			if((index+1)==length){
-				var a = '<img  id ="index_img_'+index+'" width="100px" onclick="index_image_click('+index+')" src="image/upload_hover.png" style="cursor: pointer;">'
-				var b = '<input style="display: none;" id ="index_file" type="file" name="image_file" onChange="index_image_change('+index+')">'
+				var a = '<img  id ="index_img_'+index+'" width="100px" onclick="index_image_click('+index+')" src="images/upload_hover.png" style="cursor: pointer;">'
+				var b = '<input style="display: none;" id ="index_file_'+index+'" type="file" name="image_file" onChange="index_image_change('+index+')">'
 				$("#spu_publish_image_area").append(a+b);
-			}			
+					
 		}
 			
 </script>
 </head>
 <body>
 	<form action="save_spu.do" method="post" enctype="multipart/form-data">
-		${success}
+		${success}============================
 		<hr>
 		<select name ="flbh1" id="spu_publish_class1_select" onChange="spu_publish_get_class_2_select(this.value)" ></select>
 		<select name ="flbh2" id="spu_publish_class2_select" ></select>
 		<select name ="pp_id"id="spu_publish_tm_select"></select><br>
 		
-		商品名称：<input type="text" name="shp_mch"><br>
+		商品名称：<input id = "aaa"  type="text" name="shp_mch"><br>
 		商品描述：<input type="text" name="shp_msh"><br>
-		<div id="spu_publish_image_area">
+		
 		商品图片组：
-		<img  id ="index_img_0" width="100px" onclick="index_image_click(0)" src="image/upload_hover.png" style="cursor: pointer;">
-		<input style="display: none;" id ="index_file" type="file" name="image_file" onChange="index_image_change(0)">
+		<div id="spu_publish_image_area">
+			<img  id ="index_img_0" width="100px" onclick="index_image_click(0)" src="images/upload_hover.png" style="cursor: pointer;">
+			<input style="display: none;" id ="index_file_0" type="file" name="image_file" onChange="index_image_change(0)">
 		</div>
 		
 		<input type="submit" value="发布商品信息">

@@ -2,7 +2,8 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.atguigu.mapper.SupMapper">
+<mapper namespace="com.atguigu.mapper.SpuMapper">
+
 	<insert useGeneratedKeys="true" keyColumn="id" id="insertSpu"
 		parameterType="com.atguigu.bean.T_MALL_PRODUCT">
 		insert into t_mall_product
@@ -12,7 +13,7 @@
 		flbh2,
 		pp_id,
 		shp_msh
-		)vlaues
+		)values
 		(
 		#{shp_mch},
 		#{shp_tp},
@@ -23,23 +24,21 @@
 		)
 	</insert>
 
-	<insert id="insertImages" parameterType="map">
+	<insert id="insertImages" parameterType="Map">
 		insert into
 		t_mall_product_image
 		(
 		shp_id,
 		url
-		)values
+		)
+		values
 		<foreach collection="list_image" item="image" separator=",">
 		(
-		#{shp_id}, 
+		#{spu_id}, 
 		#{image}
 		)
 		</foreach>
-
-
 	</insert>
-
 </mapper>
 
 

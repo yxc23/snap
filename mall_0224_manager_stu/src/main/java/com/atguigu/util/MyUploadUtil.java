@@ -35,9 +35,8 @@ public class MyUploadUtil {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+			list_image.add(image_name);
 		}
-		
 		return list_image;
 	}
 

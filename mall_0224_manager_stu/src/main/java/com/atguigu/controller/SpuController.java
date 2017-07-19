@@ -26,7 +26,7 @@ public class SpuController {
 	}
 
 	@RequestMapping("/goto_spu_publish/{success}")
-	public String gotoSpuPublish(@PathVariable("success") String success) {
+	public String gotoSpuPublish(@PathVariable String success) {
 		
 		return "manager_spu_publish";
 	}
